@@ -48,7 +48,7 @@ export default function BrowsePage() {
         <div className={homeStyles.container}>
           <div className={homeStyles.footerBottom}>
             <span>
-              © {new Date().getFullYear()} {BRAND_CONFIG.name} ({BRAND_CONFIG.tagline}). Crafted in {BRAND_CONFIG.city}.
+              © 2026 {BRAND_CONFIG.name} ({BRAND_CONFIG.tagline}). Crafted in {BRAND_CONFIG.city}.
             </span>
             <div className={homeStyles.footerBottomSocials}>
               {BRAND_CONFIG.socials.map((s) => (

@@ -368,7 +368,7 @@ export default function Home() {
 
           <div className={styles.footerBottom}>
             <span>
-              © {new Date().getFullYear()} {BRAND_CONFIG.name} (
+              © 2026 {BRAND_CONFIG.name} (
               {BRAND_CONFIG.tagline}). Crafted in {BRAND_CONFIG.city}.
             </span>
             <div className={styles.footerBottomSocials}>
