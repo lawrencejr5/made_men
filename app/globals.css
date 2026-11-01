@@ -1,38 +1,94 @@
-:root {
-  /* Brand Colors extracted from logo1.png & logo2.png */
-  --gold-primary: #b67b2e;
-  --gold-hover: #9c6824;
-  --gold-light: #cca043;
+/* Light Theme (DEFAULT) */
+:root,
+[data-theme="light"] {
+  /* Brand Palette from logo1.png & logo2.png */
+  --gold-primary: #a86c22;
+  --gold-hover: #8f5817;
+  --gold-light: #c28833;
+  --gold-border: rgba(168, 108, 34, 0.25);
+  --gold-border-subtle: rgba(168, 108, 34, 0.14);
+  --gold-soft-bg: rgba(168, 108, 34, 0.08);
+
+  /* Light Theme Surfaces: Crisp Luxury Linen / Off-White */
+  --bg-primary: #fbf9f5;
+  --bg-elevated: #f3efe6;
+  --bg-card: #ffffff;
+  --bg-soft: #eae4d8;
+  --border-subtle: rgba(16, 20, 30, 0.08);
+  --border-card: rgba(168, 108, 34, 0.16);
+
+  /* Typography */
+  --text-primary: #0f131d;
+  --text-muted: #565147;
+  --text-subtle: #827b6f;
+
+  /* Navbar background */
+  --nav-bg: rgba(251, 249, 245, 0.92);
+
+  /* High Contrast Solid Buttons */
+  --btn-primary-bg: #0f131d;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #262c3d;
+
+  --btn-gold-bg: #a86c22;
+  --btn-gold-text: #ffffff;
+  --btn-gold-hover: #8f5817;
+
+  --btn-secondary-bg: #ffffff;
+  --btn-secondary-border: rgba(168, 108, 34, 0.28);
+  --btn-secondary-text: #0f131d;
+  --btn-secondary-hover: #f3efe6;
+
+  --card-shadow: 0 10px 30px rgba(15, 19, 29, 0.06);
+  --card-shadow-hover: 0 16px 36px rgba(15, 19, 29, 0.12);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --gold-primary: #cca043;
+  --gold-hover: #b67b2e;
+  --gold-light: #e0b85c;
   --gold-border: rgba(204, 160, 67, 0.28);
   --gold-border-subtle: rgba(204, 160, 67, 0.16);
+  --gold-soft-bg: rgba(204, 160, 67, 0.1);
 
-  /* Obsidian & Rich Charcoal Surfaces */
-  --obsidian: #080a0f;
-  --obsidian-elevated: #0f131c;
-  --obsidian-card: #141924;
-  --obsidian-soft: #1c2331;
-  --obsidian-border: rgba(255, 255, 255, 0.08);
+  /* Dark Theme Surfaces */
+  --bg-primary: #080a0f;
+  --bg-elevated: #0f131c;
+  --bg-card: #141924;
+  --bg-soft: #1c2331;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(204, 160, 67, 0.22);
 
-  /* Ivory & Neutral Typography */
-  --ivory: #faf6f0;
-  --ivory-muted: #c4bcae;
-  --ivory-subtle: #8a8276;
+  /* Typography */
+  --text-primary: #faf6f0;
+  --text-muted: #c4bcae;
+  --text-subtle: #8a8276;
 
-  /* Solid Button Colors (No Gradients) */
-  --btn-gold-bg: #b67b2e;
-  --btn-gold-hover: #9c6824;
+  /* Navbar background */
+  --nav-bg: rgba(8, 10, 15, 0.92);
+
+  /* High Contrast Solid Buttons */
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #080a0f;
+  --btn-primary-hover: #e6dfd3;
+
+  --btn-gold-bg: #cca043;
   --btn-gold-text: #080a0f;
+  --btn-gold-hover: #b67b2e;
 
-  --btn-dark-bg: #141924;
-  --btn-dark-border: rgba(204, 160, 67, 0.32);
-  --btn-dark-hover: #1c2331;
-  --btn-dark-text: #faf6f0;
+  --btn-secondary-bg: #141924;
+  --btn-secondary-border: rgba(204, 160, 67, 0.35);
+  --btn-secondary-text: #faf6f0;
+  --btn-secondary-hover: #1c2331;
+
+  --card-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  --card-shadow-hover: 0 20px 48px rgba(0, 0, 0, 0.65);
 }
 
 html {
   height: 100%;
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 html,
@@ -45,11 +101,12 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  color: var(--ivory);
-  background: var(--obsidian);
+  color: var(--text-primary);
+  background: var(--bg-primary);
   font-family: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 * {
@@ -69,5 +126,32 @@ button {
 
 ::selection {
   background: var(--gold-primary);
-  color: #080a0f;
+  color: #ffffff;
+}
+
+/* Global Theme Toggle Button Style */
+.themeToggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.themeToggleBtn:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+}
+
+.themeToggleText {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
 }

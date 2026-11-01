@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactSection from "@/components/ContactSection";
 import SocialIcon from "@/components/SocialIcon";
+import ThemeToggle from "@/components/ThemeToggle";
 import { BRAND_CONFIG, PORTFOLIO_ITEMS } from "@/lib/catalog";
 import styles from "./page.module.css";
 
@@ -46,8 +47,8 @@ export default function Home() {
               <Image
                 src="/images/logo2.png"
                 alt="made_men monogram logo"
-                width={42}
-                height={48}
+                width={38}
+                height={44}
                 className={styles.navLogoImage}
                 priority
               />
@@ -62,6 +63,7 @@ export default function Home() {
             </div>
           </Link>
 
+          {/* Desktop Nav Links */}
           <nav className={styles.navLinks} aria-label="Primary Navigation">
             <Link href="/" className={`${styles.navItem} ${styles.navItemActive}`}>
               Home
@@ -80,9 +82,13 @@ export default function Home() {
             </Link>
           </nav>
 
-          <Link href="#contact" className={styles.navCtaBtn}>
-            Book a Fitting
-          </Link>
+          {/* Nav Right Controls: Theme Toggle & Fitting CTA */}
+          <div className={styles.navActions}>
+            <ThemeToggle />
+            <Link href="#contact" className={styles.navCtaBtn}>
+              Book Fitting
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -91,11 +97,11 @@ export default function Home() {
         <section className={styles.heroBanner}>
           <div className={styles.container}>
             <div className={styles.heroGrid}>
-              {/* Left Column: Brand Story, CTAs & Sleek Socials Icon Row */}
+              {/* Left Column (Main Hero Content) */}
               <div className={styles.heroContent}>
                 <div className={styles.locationBadge}>
                   <span className={styles.locationDot} />
-                  <span>BESPOKE TAILORING HOUSE • {BRAND_CONFIG.city}</span>
+                  <span>ENUGU, NIGERIA • BESPOKE ATELIER</span>
                 </div>
 
                 <h1 className={styles.heroHeadline}>
@@ -103,24 +109,38 @@ export default function Home() {
                   <span className={styles.goldText}>Master Tailoring.</span>
                 </h1>
 
+                {/* Mobile-Only Hero Showcase Card (Displays image above fold on mobile) */}
+                <div className={styles.mobileHeroShowcase}>
+                  <div className={styles.mobileHeroImageWrap}>
+                    <Image
+                      src="/images/senator2.jpeg"
+                      alt="Bespoke Gold-Embroidered Senator by made_men"
+                      fill
+                      priority
+                      sizes="(max-width: 900px) 90vw, 30vw"
+                      className={styles.mobileHeroImage}
+                    />
+                    <div className={styles.mobileHeroBadge}>
+                      <span>SIGNATURE SENATOR</span>
+                      <strong>Gold Geometric Embroidery</strong>
+                    </div>
+                  </div>
+                </div>
+
                 <p className={styles.heroLead}>
-                  Welcome to{" "}
-                  <strong className={styles.inlineBrand}>
-                    made<span className={styles.goldUnderscore}>_</span>men
-                  </strong>{" "}
-                  <em>({BRAND_CONFIG.tagline})</em>. {BRAND_CONFIG.heroDescription}
+                  <strong>made<span className={styles.goldUnderscore}>_</span>men</strong> crafts architectural Senator wear, executive corporate suiting, and luxury casual pieces for discerning clients worldwide.
                 </p>
 
                 <div className={styles.heroCtaGroup}>
-                  <Link href="/browse" className={styles.solidGoldBtn}>
-                    Browse Categories →
+                  <Link href="/browse" className={styles.btnPrimary}>
+                    Browse Collection →
                   </Link>
-                  <Link href="#contact" className={styles.solidOutlineBtn}>
-                    Contact Me
+                  <Link href="#contact" className={styles.btnSecondary}>
+                    Book a Fitting
                   </Link>
                 </div>
 
-                {/* Compact Socials: Just Clean Icons */}
+                {/* Compact Socials: Sleek Icon Buttons */}
                 <div className={styles.heroSocialsBar}>
                   <span className={styles.heroSocialsLabel}>Connect:</span>
                   <div className={styles.heroSocialsIcons}>
@@ -134,14 +154,14 @@ export default function Home() {
                         aria-label={social.name}
                         title={`${social.name}: ${social.handle}`}
                       >
-                        <SocialIcon name={social.icon} size={18} />
+                        <SocialIcon name={social.icon} size={17} />
                       </a>
                     ))}
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Hero Lookbook Composition */}
+              {/* Desktop Hero Visual Showcase (Hidden on Mobile) */}
               <div className={styles.heroVisualCol}>
                 <div className={styles.heroCollage}>
                   {/* Main feature frame */}
@@ -166,8 +186,8 @@ export default function Home() {
                       <Image
                         src="/images/logo1.png"
                         alt="Made_Men Global Stitches Official Emblem"
-                        width={105}
-                        height={142}
+                        width={95}
+                        height={130}
                         className={styles.heroEmblemImg}
                         priority
                       />
@@ -192,7 +212,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Lookbook Teaser (Linking to dedicated /browse page) */}
+        {/* Featured Lookbook Teaser */}
         <section className={styles.featuredSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeaderFlex}>
@@ -205,7 +225,7 @@ export default function Home() {
                   A glimpse into our bespoke Senator, corporate, and smart casual collections.
                 </p>
               </div>
-              <Link href="/browse" className={styles.solidGoldBtn}>
+              <Link href="/browse" className={styles.btnPrimary}>
                 View All Categories ({PORTFOLIO_ITEMS.length}) →
               </Link>
             </div>
@@ -307,10 +327,10 @@ export default function Home() {
                 </div>
 
                 <div className={styles.founderCtaRow}>
-                  <Link href="#contact" className={styles.solidGoldBtn}>
+                  <Link href="#contact" className={styles.btnPrimary}>
                     Book a Fitting Session
                   </Link>
-                  <Link href="/browse" className={styles.solidOutlineBtn}>
+                  <Link href="/browse" className={styles.btnSecondary}>
                     Browse His Works
                   </Link>
                 </div>
@@ -360,8 +380,8 @@ export default function Home() {
                 <Image
                   src="/images/logo1.png"
                   alt="Made_Men Global Stitches full logo"
-                  width={84}
-                  height={114}
+                  width={80}
+                  height={108}
                   className={styles.footerLogoImg}
                 />
               </div>

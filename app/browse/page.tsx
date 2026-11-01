@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import BrowseClient from "./BrowseClient";
+import ThemeToggle from "@/components/ThemeToggle";
 import { BRAND_CONFIG } from "@/lib/catalog";
 import styles from "./browse.module.css";
 import homeStyles from "@/app/page.module.css";
@@ -23,8 +24,8 @@ export default function BrowsePage() {
               <Image
                 src="/images/logo2.png"
                 alt="made_men monogram logo"
-                width={42}
-                height={48}
+                width={38}
+                height={44}
                 className={homeStyles.navLogoImage}
                 priority
               />
@@ -57,9 +58,12 @@ export default function BrowsePage() {
             </Link>
           </nav>
 
-          <Link href="/#contact" className={homeStyles.navCtaBtn}>
-            Book a Fitting
-          </Link>
+          <div className={homeStyles.navActions}>
+            <ThemeToggle />
+            <Link href="/#contact" className={homeStyles.navCtaBtn}>
+              Book Fitting
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -113,4 +117,3 @@ export default function BrowsePage() {
     </div>
   );
 }
-

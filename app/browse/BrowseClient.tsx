@@ -170,13 +170,13 @@ export default function BrowseClient() {
                 Senator suits, and special occasion ensembles in {BRAND_CONFIG.city}.
               </p>
               <div className={styles.emptyCategoryActions}>
-                <Link href="/#contact" className={styles.solidGoldBtn}>
+                <Link href="/#contact" className={styles.solidPrimaryBtn}>
                   Request a Custom Order
                 </Link>
                 <button
                   type="button"
                   onClick={() => setActiveCategory("all")}
-                  className={styles.solidOutlineBtn}
+                  className={styles.solidSecondaryBtn}
                 >
                   Browse All Available Works
                 </button>
@@ -256,14 +256,14 @@ export default function BrowseClient() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.solidGoldBtn}
+                  className={styles.solidPrimaryBtn}
                 >
                   Inquire on WhatsApp
                 </a>
                 <Link
                   href="/#contact"
                   onClick={() => setSelectedItem(null)}
-                  className={styles.solidOutlineBtn}
+                  className={styles.solidSecondaryBtn}
                 >
                   Book Fitting Session
                 </Link>
@@ -275,4 +275,3 @@ export default function BrowseClient() {
     </>
   );
 }
-
