@@ -19,7 +19,7 @@ export default function ContactSection() {
       `My name is ${fullName || "a prospective client"}.`,
       `Category of Interest: ${category}`,
       phone ? `Phone / WhatsApp: ${phone}` : "",
-      notes ? `Measurement / Style Notes: ${notes}` : "",
+      notes ? `Style Notes: ${notes}` : "",
     ]
       .filter(Boolean)
       .join("\n");
@@ -40,17 +40,21 @@ export default function ContactSection() {
           <div className={styles.contactInfoCol}>
             <span className={styles.eyebrow}>GET IN TOUCH</span>
             <h2 className={styles.sectionTitle}>
-              Contact <span className={styles.goldText}>{BRAND_CONFIG.name}</span>
+              Contact{" "}
+              <span className={styles.goldText}>{BRAND_CONFIG.name}</span>
             </h2>
             <p className={styles.contactIntro}>
               Ready for your next bespoke Senator set, sharp corporate suit, or
               custom wardrobe? Visit our studio in{" "}
-              <strong>{BRAND_CONFIG.city}</strong> or book a consultation from anywhere in the world.
+              <strong>{BRAND_CONFIG.city}</strong> or book a consultation from
+              anywhere in the world.
             </p>
 
             <div className={styles.contactCardsList}>
               <div className={styles.contactDetailCard}>
-                <span className={styles.contactCardLabel}>ATELIER LOCATION</span>
+                <span className={styles.contactCardLabel}>
+                  ATELIER LOCATION
+                </span>
                 <strong className={styles.contactCardValue}>
                   {BRAND_CONFIG.address}
                 </strong>
@@ -83,7 +87,8 @@ export default function ContactSection() {
                   {BRAND_CONFIG.email}
                 </a>
                 <span className={styles.contactCardSub}>
-                  For wedding parties, corporate orders &amp; international shipments
+                  For wedding parties, corporate orders &amp; international
+                  shipments
                 </span>
               </div>
             </div>
@@ -114,9 +119,12 @@ export default function ContactSection() {
           <div className={styles.contactFormCard}>
             <div className={styles.formHeader}>
               <span className={styles.formBadge}>BESPOKE APPOINTMENT</span>
-              <h3 className={styles.formTitle}>Book a Fitting or Custom Order</h3>
+              <h3 className={styles.formTitle}>
+                Book a Fitting or Custom Order
+              </h3>
               <p className={styles.formSubtitle}>
-                Submit your inquiry to start a direct consultation with the master tailor.
+                Submit your inquiry to start a direct consultation with the
+                master tailor.
               </p>
             </div>
 
@@ -162,14 +170,9 @@ export default function ContactSection() {
                     onChange={(e) => setCategory(e.target.value)}
                     className={styles.formSelect}
                   >
-                    <option value="Senator">Senator Wear</option>
-                    <option value="Corporate">Corporate / Suiting</option>
-                    <option value="Casual">Casual / Two-Piece</option>
-                    <option value="Men">Men&apos;s Bespoke</option>
-                    <option value="Women">Women&apos;s Bespoke</option>
-                    <option value="Groomsmen & Event">
-                      Groomsmen / Event Package
-                    </option>
+                    <option value="Men">Men&apos;s Wears</option>
+                    <option value="Women">Women&apos;s Wears</option>
+                    <option value="Children">Children&apos;s Wears</option>
                   </select>
                 </div>
               </div>
@@ -194,7 +197,8 @@ export default function ContactSection() {
 
               {submitted && (
                 <p className={styles.formSuccessNote}>
-                  Your inquiry message is opened in WhatsApp! You can also email us directly at{" "}
+                  Your inquiry message is opened in WhatsApp! You can also email
+                  us directly at{" "}
                   <a href={`mailto:${BRAND_CONFIG.email}`}>
                     {BRAND_CONFIG.email}
                   </a>
