@@ -1,0 +1,633 @@
+.browsePage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--obsidian);
+  color: var(--ivory);
+}
+
+.mainContent {
+  flex: 1;
+  padding: 40px 0 80px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header & Breadcrumb */
+.headerArea {
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--gold-border-subtle);
+  padding-bottom: 24px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--ivory-subtle);
+  margin-bottom: 12px;
+}
+
+.breadcrumb a:hover {
+  color: var(--gold-light);
+}
+
+.breadcrumbSep {
+  color: var(--gold-primary);
+  opacity: 0.6;
+}
+
+.pageTitle {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ivory);
+  margin-bottom: 8px;
+}
+
+.goldText {
+  color: var(--gold-light);
+}
+
+.pageSubtitle {
+  font-size: 0.98rem;
+  color: var(--ivory-muted);
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+/* Layout: Desktop Left Sidebar + Right Gallery */
+.browseLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 44px;
+  align-items: start;
+}
+
+/* Left Sidebar on Desktop */
+.sidebar {
+  position: sticky;
+  top: 96px;
+  background: var(--obsidian-card);
+  border: 1px solid var(--gold-border-subtle);
+  border-radius: 18px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebarTitle {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--obsidian-border);
+}
+
+.sidebarCategoriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.categorySidebarBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--ivory-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.categorySidebarBtn:hover {
+  background: var(--obsidian-soft);
+  color: var(--ivory);
+  border-color: var(--obsidian-border);
+}
+
+.categorySidebarBtnActive {
+  background: var(--btn-gold-bg);
+  color: var(--btn-gold-text);
+  border-color: var(--btn-gold-bg);
+  font-weight: 700;
+}
+
+.categorySidebarBtnActive:hover {
+  background: var(--btn-gold-hover);
+  color: var(--btn-gold-text);
+  border-color: var(--btn-gold-hover);
+}
+
+.categoryCountBadge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.categorySidebarBtn:not(.categorySidebarBtnActive) .categoryCountBadge {
+  background: var(--obsidian-soft);
+  color: var(--ivory-subtle);
+}
+
+.sidebarMetaBox {
+  padding-top: 16px;
+  border-top: 1px solid var(--obsidian-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebarMetaLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.sidebarMetaText {
+  font-size: 0.85rem;
+  color: var(--ivory-subtle);
+  line-height: 1.5;
+}
+
+.sidebarContactCta {
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  border-radius: 10px;
+  background: var(--btn-dark-bg);
+  border: 1px solid var(--btn-dark-border);
+  color: var(--ivory);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.sidebarContactCta:hover {
+  background: var(--btn-dark-hover);
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
+
+/* Mobile Category Filter Bar (Hidden on Desktop) */
+.mobileCategoryBar {
+  display: none;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  gap: 8px;
+  scrollbar-width: thin;
+}
+
+.mobileCategoryPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--obsidian-card);
+  border: 1px solid var(--obsidian-border);
+  color: var(--ivory-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mobileCategoryPillActive {
+  background: var(--btn-gold-bg);
+  color: var(--btn-gold-text);
+  border-color: var(--btn-gold-bg);
+}
+
+/* Right Content Area */
+.contentArea {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.activeCategorySummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: var(--obsidian-card);
+  border: 1px solid var(--gold-border-subtle);
+}
+
+.activeCategoryTagline {
+  font-size: 0.92rem;
+  color: var(--ivory-muted);
+}
+
+.activeCategoryCount {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+/* Gallery Grid */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.galleryCard {
+  background: var(--obsidian-card);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--obsidian-border);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.galleryCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-border);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.cardImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #0b0e15;
+  overflow: hidden;
+}
+
+.cardImage {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.35s ease;
+}
+
+.galleryCard:hover .cardImage {
+  transform: scale(1.03);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 10, 15, 0.85) 0%, transparent 45%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 16px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.galleryCard:hover .cardOverlay {
+  opacity: 1;
+}
+
+.inspectBtn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--btn-gold-bg);
+  color: var(--btn-gold-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cardBadges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cardBadge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(8, 10, 15, 0.88);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-light);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cardBody {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardSubtitle {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold-light);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ivory);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.cardHighlight {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ivory-muted);
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.cardFooter {
+  padding-top: 14px;
+  border-top: 1px solid var(--obsidian-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.fabricTag {
+  font-size: 0.76rem;
+  color: var(--ivory-subtle);
+}
+
+.cardActionText {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+/* Empty Category (Women's Bespoke Commission) */
+.emptyCategoryCard {
+  padding: 48px 36px;
+  border-radius: 20px;
+  background: var(--obsidian-card);
+  border: 1px solid var(--gold-border);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptyCategoryBadge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(182, 123, 46, 0.15);
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 16px;
+}
+
+.emptyCategoryTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.emptyCategoryText {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--ivory-muted);
+  max-width: 600px;
+  margin-bottom: 28px;
+}
+
+.emptyCategoryActions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* Solid Buttons (No Gradients) */
+.solidGoldBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  background: var(--btn-gold-bg);
+  color: var(--btn-gold-text);
+  font-weight: 700;
+  font-size: 0.92rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.solidGoldBtn:hover {
+  background: var(--btn-gold-hover);
+}
+
+.solidOutlineBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+  font-weight: 600;
+  font-size: 0.92rem;
+  border: 1px solid var(--btn-dark-border);
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.solidOutlineBtn:hover {
+  background: var(--btn-dark-hover);
+  border-color: var(--gold-light);
+}
+
+/* Lightbox Modal */
+.lightboxBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(4, 6, 10, 0.88);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lightboxModal {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  background: var(--obsidian-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75);
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--obsidian-border);
+  background: var(--obsidian);
+  color: var(--ivory);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.lightboxClose:hover {
+  background: var(--obsidian-soft);
+  color: var(--gold-light);
+}
+
+.lightboxImageContainer {
+  position: relative;
+  min-height: 500px;
+  background: #07090d;
+}
+
+.lightboxImage {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.lightboxDetails {
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lightboxCategories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.lightboxSubtitle {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.lightboxTitle {
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.lightboxHighlight {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ivory-muted);
+  margin-bottom: 22px;
+}
+
+.lightboxSpecBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--obsidian-soft);
+  border: 1px solid var(--obsidian-border);
+  margin-bottom: 24px;
+}
+
+.specLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold-light);
+}
+
+.specValue {
+  font-size: 0.88rem;
+  color: var(--ivory);
+  margin-top: 2px;
+}
+
+.lightboxActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Responsive Rules */
+@media (max-width: 960px) {
+  .browseLayout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .mobileCategoryBar {
+    display: flex;
+  }
+
+  .lightboxModal {
+    grid-template-columns: 1fr;
+  }
+
+  .lightboxImageContainer {
+    min-height: 360px;
+  }
+}
+

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import BrowseGallery from "@/components/BrowseGallery";
+import Link from "next/link";
 import ContactSection from "@/components/ContactSection";
 import SocialIcon from "@/components/SocialIcon";
-import { BRAND_CONFIG } from "@/lib/catalog";
+import { BRAND_CONFIG, PORTFOLIO_ITEMS } from "@/lib/catalog";
 import styles from "./page.module.css";
 
 const CRAFT_STEPS = [
@@ -10,27 +10,30 @@ const CRAFT_STEPS = [
     step: "01",
     title: "Consultation & Fabric Curation",
     description:
-      "We help you select from luxury cashmere wools, breathable cotton-linens, and textured weaves suited to your occasion and climate.",
+      "We help you select from premium cashmere wools, breathable cotton-linens, and textured weaves suited to your occasion and climate.",
   },
   {
     step: "02",
     title: "Precision Anatomical Measurement",
     description:
-      "Every posture and shoulder slope is recorded in our Enugu studio—or via our guided remote measurement protocol for global clients.",
+      "Every posture and shoulder slope is recorded in our Enugu studio—or via our guided remote measurement protocol for clients abroad.",
   },
   {
     step: "03",
-    title: "Signature Cut & Gold Stitchwork",
+    title: "Signature Cut & Master Stitchwork",
     description:
-      "From geometric Senator embroidery to razor-sharp corporate lapels, each seam is reinforced and pressed for lasting structure.",
+      "From geometric Senator embroidery to razor-sharp corporate lapels, every seam is reinforced and hand-pressed for enduring drape.",
   },
   {
     step: "04",
     title: "Final Fitting & Global Delivery",
     description:
-      "After a meticulous quality check under the Made_Men Global Stitches label, your garment is steamed, boxed, and delivered.",
+      "Bearing the official Made_Men Global Stitches label, your finished garment is steamed, packaged, and delivered anywhere in the world.",
   },
 ];
+
+// Highlighted creations for homepage teaser
+const FEATURED_WORKS = PORTFOLIO_ITEMS.slice(0, 3);
 
 export default function Home() {
   return (
@@ -38,7 +41,7 @@ export default function Home() {
       {/* Sticky Top Navbar */}
       <header className={styles.navbar}>
         <div className={styles.navContainer}>
-          <a href="#top" className={styles.brandLink}>
+          <Link href="/" className={styles.brandLink}>
             <div className={styles.logoMarkWrap}>
               <Image
                 src="/images/logo2.png"
@@ -57,38 +60,38 @@ export default function Home() {
                 {BRAND_CONFIG.tagline} • ENUGU
               </span>
             </div>
-          </a>
+          </Link>
 
           <nav className={styles.navLinks} aria-label="Primary Navigation">
-            <a href="#browse" className={styles.navItem}>
-              Browse Categories
-            </a>
-            <a href="#hand-behind-brand" className={styles.navItem}>
+            <Link href="/" className={`${styles.navItem} ${styles.navItemActive}`}>
+              Home
+            </Link>
+            <Link href="/browse" className={styles.navItem}>
+              Browse Collection
+            </Link>
+            <Link href="#hand-behind-brand" className={styles.navItem}>
               The Tailor
-            </a>
-            <a href="#craft" className={styles.navItem}>
+            </Link>
+            <Link href="#craft" className={styles.navItem}>
               Craftsmanship
-            </a>
-            <a href="#contact" className={styles.navItem}>
+            </Link>
+            <Link href="#contact" className={styles.navItem}>
               Contact Me
-            </a>
+            </Link>
           </nav>
 
-          <a href="#contact" className={styles.navCtaBtn}>
+          <Link href="#contact" className={styles.navCtaBtn}>
             Book a Fitting
-          </a>
+          </Link>
         </div>
       </header>
 
       <main id="top" className={styles.main}>
         {/* Home Page Hero Banner */}
         <section className={styles.heroBanner}>
-          <div className={styles.heroGlowLeft} aria-hidden="true" />
-          <div className={styles.heroGlowRight} aria-hidden="true" />
-
           <div className={styles.container}>
             <div className={styles.heroGrid}>
-              {/* Left Column: Brand Story, CTAs & Hero Socials List */}
+              {/* Left Column: Brand Story, CTAs & Sleek Socials Icon Row */}
               <div className={styles.heroContent}>
                 <div className={styles.locationBadge}>
                   <span className={styles.locationDot} />
@@ -97,9 +100,7 @@ export default function Home() {
 
                 <h1 className={styles.heroHeadline}>
                   Where Nigerian Heritage Meets{" "}
-                  <span className={styles.goldGradientText}>
-                    Master Tailoring.
-                  </span>
+                  <span className={styles.goldText}>Master Tailoring.</span>
                 </h1>
 
                 <p className={styles.heroLead}>
@@ -111,53 +112,39 @@ export default function Home() {
                 </p>
 
                 <div className={styles.heroCtaGroup}>
-                  <a href="#browse" className={styles.primaryGoldBtn}>
-                    Browse Categories
-                  </a>
-                  <a href="#contact" className={styles.secondaryOutlineBtn}>
+                  <Link href="/browse" className={styles.solidGoldBtn}>
+                    Browse Categories →
+                  </Link>
+                  <Link href="#contact" className={styles.solidOutlineBtn}>
                     Contact Me
-                  </a>
+                  </Link>
                 </div>
 
-                {/* Prominent Socials List on the Home Page Banner */}
-                <div className={styles.heroSocialsBox}>
-                  <div className={styles.heroSocialsHeader}>
-                    <span className={styles.heroSocialsLine} />
-                    <span className={styles.heroSocialsLabel}>
-                      OFFICIAL SOCIAL CHANNELS — FOLLOW &amp; CONNECT
-                    </span>
-                  </div>
-                  <div className={styles.heroSocialsList}>
+                {/* Compact Socials: Just Clean Icons */}
+                <div className={styles.heroSocialsBar}>
+                  <span className={styles.heroSocialsLabel}>Connect:</span>
+                  <div className={styles.heroSocialsIcons}>
                     {BRAND_CONFIG.socials.map((social) => (
                       <a
                         key={social.name}
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={styles.heroSocialCard}
+                        className={styles.heroSocialIconBtn}
+                        aria-label={social.name}
                         title={`${social.name}: ${social.handle}`}
                       >
-                        <span className={styles.heroSocialIcon}>
-                          <SocialIcon name={social.icon} size={18} />
-                        </span>
-                        <span className={styles.heroSocialMeta}>
-                          <span className={styles.heroSocialName}>
-                            {social.name}
-                          </span>
-                          <span className={styles.heroSocialHandle}>
-                            {social.handle}
-                          </span>
-                        </span>
+                        <SocialIcon name={social.icon} size={18} />
                       </a>
                     ))}
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Hero Lookbook Composition & Brand Emblem */}
+              {/* Right Column: Hero Lookbook Composition */}
               <div className={styles.heroVisualCol}>
                 <div className={styles.heroCollage}>
-                  {/* Main tall feature frame */}
+                  {/* Main feature frame */}
                   <div className={styles.heroMainFrame}>
                     <Image
                       src="/images/senator2.jpeg"
@@ -179,8 +166,8 @@ export default function Home() {
                       <Image
                         src="/images/logo1.png"
                         alt="Made_Men Global Stitches Official Emblem"
-                        width={110}
-                        height={148}
+                        width={105}
+                        height={142}
                         className={styles.heroEmblemImg}
                         priority
                       />
@@ -198,19 +185,6 @@ export default function Home() {
                         <span>CORPORATE</span>
                       </div>
                     </div>
-
-                    <div className={styles.heroSubFrame}>
-                      <Image
-                        src="/images/WhatsApp Image 2026-10-31 at 1.24.55 PM.jpeg"
-                        alt="Royal Navy Embellished Senator Ensemble by made_men"
-                        fill
-                        sizes="(max-width: 900px) 50vw, 22vw"
-                        className={styles.heroImgCover}
-                      />
-                      <div className={styles.heroFrameCaptionSmall}>
-                        <span>BESPOKE LUXURY</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -218,8 +192,58 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Browse by Categories Section (Men, Women, Casual, Corporate, Senator) */}
-        <BrowseGallery />
+        {/* Featured Lookbook Teaser (Linking to dedicated /browse page) */}
+        <section className={styles.featuredSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeaderFlex}>
+              <div>
+                <span className={styles.eyebrow}>CURATED ARCHIVE</span>
+                <h2 className={styles.sectionTitle}>
+                  Signature <span className={styles.goldText}>Creations</span>
+                </h2>
+                <p className={styles.sectionSubtitle}>
+                  A glimpse into our bespoke Senator, corporate, and smart casual collections.
+                </p>
+              </div>
+              <Link href="/browse" className={styles.solidGoldBtn}>
+                View All Categories ({PORTFOLIO_ITEMS.length}) →
+              </Link>
+            </div>
+
+            <div className={styles.featuredGrid}>
+              {FEATURED_WORKS.map((item) => (
+                <Link
+                  key={item.id}
+                  href="/browse"
+                  className={styles.featuredCard}
+                >
+                  <div className={styles.featuredImageWrap}>
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className={styles.featuredImage}
+                    />
+                    <div className={styles.featuredBadges}>
+                      {item.categories.map((cat) => (
+                        <span key={cat} className={styles.featuredBadge}>
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className={styles.featuredBody}>
+                    <span className={styles.featuredSubtitle}>{item.subtitle}</span>
+                    <h3 className={styles.featuredTitle}>{item.title}</h3>
+                    <p className={styles.featuredHighlight}>{item.highlight}</p>
+                    <span className={styles.featuredCtaText}>Explore in Lookbook →</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* The Hand Behind the Brand Section */}
         <section id="hand-behind-brand" className={styles.founderSection}>
@@ -283,19 +307,19 @@ export default function Home() {
                 </div>
 
                 <div className={styles.founderCtaRow}>
-                  <a href="#contact" className={styles.primaryGoldBtn}>
-                    Book a Session With the Tailor
-                  </a>
-                  <a href="#browse" className={styles.secondaryOutlineBtn}>
-                    Explore His Works
-                  </a>
+                  <Link href="#contact" className={styles.solidGoldBtn}>
+                    Book a Fitting Session
+                  </Link>
+                  <Link href="/browse" className={styles.solidOutlineBtn}>
+                    Browse His Works
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Craftsmanship & Tailoring Process Section */}
+        {/* Craftsmanship Section */}
         <section id="craft" className={styles.craftSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
@@ -305,9 +329,9 @@ export default function Home() {
                 Your Garment
               </h2>
               <p className={styles.sectionSubtitle}>
-                Every piece bearing the woven{" "}
+                Every garment bearing the woven{" "}
                 <strong>Made_Men Global Stitches</strong> label goes through
-                four uncompromising stages in our Enugu workshop.
+                four precise stages in our Enugu workshop.
               </p>
             </div>
 
@@ -336,8 +360,8 @@ export default function Home() {
                 <Image
                   src="/images/logo1.png"
                   alt="Made_Men Global Stitches full logo"
-                  width={92}
-                  height={124}
+                  width={84}
+                  height={114}
                   className={styles.footerLogoImg}
                 />
               </div>
@@ -354,19 +378,20 @@ export default function Home() {
             </div>
 
             <div className={styles.footerLinksCol}>
-              <span className={styles.footerColHeading}>CATEGORIES</span>
-              <a href="#browse">Men&apos;s Tailoring</a>
-              <a href="#browse">Women&apos;s Bespoke</a>
-              <a href="#browse">Senator Wear</a>
-              <a href="#browse">Corporate Suiting</a>
-              <a href="#browse">Casual Sets</a>
+              <span className={styles.footerColHeading}>EXPLORE</span>
+              <Link href="/browse">All Works</Link>
+              <Link href="/browse">Men&apos;s Tailoring</Link>
+              <Link href="/browse">Women&apos;s Bespoke</Link>
+              <Link href="/browse">Senator Sets</Link>
+              <Link href="/browse">Corporate Suiting</Link>
+              <Link href="/browse">Casual Outfits</Link>
             </div>
 
             <div className={styles.footerLinksCol}>
               <span className={styles.footerColHeading}>ATELIER</span>
-              <a href="#hand-behind-brand">The Hand Behind the Brand</a>
-              <a href="#craft">Our Craftsmanship</a>
-              <a href="#contact">Book a Fitting</a>
+              <Link href="#hand-behind-brand">The Tailor</Link>
+              <Link href="#craft">Craftsmanship</Link>
+              <Link href="#contact">Book a Fitting</Link>
               <span>{BRAND_CONFIG.city}</span>
             </div>
           </div>

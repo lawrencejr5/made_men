@@ -45,8 +45,7 @@ export default function ContactSection() {
             <p className={styles.contactIntro}>
               Ready for your next bespoke Senator set, sharp corporate suit, or
               custom wardrobe? Visit our studio in{" "}
-              <strong>{BRAND_CONFIG.city}</strong> or book a virtual measurement
-              session from anywhere in the world.
+              <strong>{BRAND_CONFIG.city}</strong> or book a consultation from anywhere in the world.
             </p>
 
             <div className={styles.contactCardsList}>
@@ -84,7 +83,7 @@ export default function ContactSection() {
                   {BRAND_CONFIG.email}
                 </a>
                 <span className={styles.contactCardSub}>
-                  For wedding parties, corporate uniforms &amp; international orders
+                  For wedding parties, corporate orders &amp; international shipments
                 </span>
               </div>
             </div>
@@ -93,17 +92,18 @@ export default function ContactSection() {
               <span className={styles.contactSocialsHeading}>
                 CONNECT ON SOCIAL MEDIA
               </span>
-              <div className={styles.contactSocialPills}>
+              <div className={styles.contactSocialIconRow}>
                 {BRAND_CONFIG.socials.map((social) => (
                   <a
                     key={social.name}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.contactSocialPill}
+                    className={styles.compactSocialBtn}
+                    aria-label={social.name}
+                    title={`${social.name}: ${social.handle}`}
                   >
-                    <SocialIcon name={social.icon} />
-                    <span>{social.name}</span>
+                    <SocialIcon name={social.icon} size={18} />
                   </a>
                 ))}
               </div>
@@ -116,8 +116,7 @@ export default function ContactSection() {
               <span className={styles.formBadge}>BESPOKE APPOINTMENT</span>
               <h3 className={styles.formTitle}>Book a Fitting or Custom Order</h3>
               <p className={styles.formSubtitle}>
-                Fill in your preferences below to launch a direct consultation
-                with the master tailor.
+                Submit your inquiry to start a direct consultation with the master tailor.
               </p>
             </div>
 
@@ -182,21 +181,20 @@ export default function ContactSection() {
                 <textarea
                   id="notes"
                   rows={4}
-                  placeholder="Share preferred colors, fabric ideas, event date, or whether you want an in-person fitting in Enugu..."
+                  placeholder="Share preferred colors, event date, or in-person fitting details in Enugu..."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   className={styles.formTextarea}
                 />
               </div>
 
-              <button type="submit" className={styles.submitGoldBtn}>
+              <button type="submit" className={styles.submitSolidBtn}>
                 Send Inquiry via WhatsApp →
               </button>
 
               {submitted && (
                 <p className={styles.formSuccessNote}>
-                  Your bespoke inquiry has been prepared! You can also email us
-                  directly at{" "}
+                  Your inquiry message is opened in WhatsApp! You can also email us directly at{" "}
                   <a href={`mailto:${BRAND_CONFIG.email}`}>
                     {BRAND_CONFIG.email}
                   </a>
@@ -210,4 +208,3 @@ export default function ContactSection() {
     </section>
   );
 }
-

@@ -97,7 +97,8 @@ export const CATEGORIES: CategoryInfo[] = [
   {
     id: "all",
     label: "All Works",
-    tagline: "Complete curated archive of bespoke creations from our Enugu atelier",
+    tagline:
+      "Complete curated archive of bespoke creations from our Enugu atelier",
   },
   {
     id: "men",
@@ -107,7 +108,8 @@ export const CATEGORIES: CategoryInfo[] = [
   {
     id: "women",
     label: "Women",
-    tagline: "Bespoke womenswear, structured two-pieces, and custom commissions",
+    tagline:
+      "Bespoke womenswear, structured two-pieces, and custom commissions",
   },
   {
     id: "casual",
@@ -122,7 +124,8 @@ export const CATEGORIES: CategoryInfo[] = [
   {
     id: "senator",
     label: "Senator",
-    tagline: "Signature Nigerian Senator suits with geometric gold & tonal embroidery",
+    tagline:
+      "Signature Nigerian Senator suits with geometric gold & tonal embroidery",
   },
 ];
 
@@ -148,6 +151,16 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     featured: true,
   },
   {
+    id: "charcoal-sovereign-tunic",
+    title: "Charcoal Sovereign Embroidered Tunic",
+    subtitle: "Precision Stitchwork Detail",
+    image: "/images/WhatsApp Image 2026-10-31 at 1.24.50 PM.jpeg",
+    categories: ["men", "senator"],
+    fabric: "Structured Charcoal Grey Suiting",
+    highlight:
+      "Intricate champagne-gold cross-stitch placket & pocket medallion",
+  },
+  {
     id: "royal-navy-embellished-senator",
     title: "Royal Navy Embellished Agbada-Senator",
     subtitle: "Ceremonial Luxury Ensemble",
@@ -158,22 +171,14 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     featured: true,
   },
   {
-    id: "charcoal-sovereign-tunic",
-    title: "Charcoal Sovereign Embroidered Tunic",
-    subtitle: "Precision Stitchwork Detail",
-    image: "/images/WhatsApp Image 2026-10-31 at 1.24.50 PM.jpeg",
-    categories: ["men", "senator"],
-    fabric: "Structured Charcoal Grey Suiting",
-    highlight: "Intricate champagne-gold cross-stitch placket & pocket medallion",
-  },
-  {
     id: "navy-sky-ribbon-kaftan",
     title: "Navy & Sky Contrast Zip Kaftan",
     subtitle: "Contemporary Weekend Two-Piece",
     image: "/images/image1.jpeg",
     categories: ["men", "casual", "senator"],
     fabric: "Breathable Matte Crepe Suiting",
-    highlight: "Architectural sky-blue border piping with concealed metallic zip",
+    highlight:
+      "Architectural sky-blue border piping with concealed metallic zip",
     featured: true,
   },
   {
@@ -183,7 +188,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     image: "/images/WhatsApp Image 2026-10-31 at 1.24.57 PM.jpeg",
     categories: ["men", "casual", "senator"],
     fabric: "Artisanal Blue & Onyx Jacquard Print",
-    highlight: "Tailored short-sleeve tunic with pleated obsidian pocket accent",
+    highlight:
+      "Tailored short-sleeve tunic with pleated obsidian pocket accent",
   },
   {
     id: "ivory-waffle-resort-senator",
@@ -219,7 +225,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     image: "/images/WhatsApp Image 2026-10-31 at 1.24.56 PM.jpeg",
     categories: ["men", "senator"],
     fabric: "Deep Navy Bespoke Wool Blend",
-    highlight: "Symmetrical sunburst crystal & gold beadwork along chest and sleeves",
+    highlight:
+      "Symmetrical sunburst crystal & gold beadwork along chest and sleeves",
   },
 ];
-
