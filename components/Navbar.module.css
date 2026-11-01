@@ -1,0 +1,329 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color 0.25s ease;
+}
+
+.navContainer {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brandLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logoMarkWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navLogoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brandTextWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandWordmark {
+  font-size: 1.18rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.goldUnderscore {
+  color: var(--gold-primary);
+  font-weight: 800;
+}
+
+.brandSubTag {
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  color: var(--gold-primary);
+  font-weight: 700;
+  margin-top: 2px;
+  display: block; /* Ensure it stays visible on all screens as requested! */
+}
+
+/* Desktop Nav Links */
+.desktopNavLinks {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navItem {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.18s ease;
+}
+
+.navItem:hover,
+.navItemActive {
+  color: var(--gold-primary);
+  font-weight: 600;
+}
+
+/* Desktop Action Area */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.desktopBookBtn {
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-weight: 700;
+  font-size: 0.82rem;
+  transition: background 0.18s ease;
+  white-space: nowrap;
+}
+
+.desktopBookBtn:hover {
+  background: var(--btn-primary-hover);
+}
+
+/* Mobile Hamburger Menu Button ("open side bar") */
+.menuToggleBtn {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.menuToggleBtn:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+}
+
+/* Mobile Drawer (Side Nav) */
+.drawerBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(10, 14, 22, 0.65);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.drawerBackdropOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawerPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 82%;
+  max-width: 340px;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border-card);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 20px 22px 28px;
+  overflow-y: auto;
+}
+
+.drawerPanelOpen {
+  transform: translateX(0);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 20px;
+}
+
+.drawerCloseBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-soft);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.drawerCloseBtn:hover {
+  background: var(--bg-primary);
+  color: var(--gold-primary);
+}
+
+.drawerNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.drawerNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--bg-soft);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.18s ease;
+}
+
+.drawerNavLink:hover {
+  background: var(--gold-soft-bg);
+  color: var(--gold-primary);
+}
+
+.drawerCtaWrapper {
+  margin-bottom: 26px;
+}
+
+.drawerBookFittingBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-weight: 700;
+  font-size: 0.92rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.drawerBookFittingBtn:hover {
+  background: var(--btn-primary-hover);
+}
+
+.drawerFooter {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.drawerAtelierBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+}
+
+.drawerAddress {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.drawerSocialsRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.drawerSocialIconBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+}
+
+.drawerSocialIconBtn:hover {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+/* Responsive Rules */
+@media (max-width: 960px) {
+  .desktopNavLinks {
+    display: none;
+  }
+
+  .desktopBookBtn {
+    display: none; /* Removed from top header on mobile, placed inside side nav! */
+  }
+
+  .menuToggleBtn {
+    display: inline-flex; /* Show "open side bar" bars icon button */
+  }
+}
+
+@media (max-width: 640px) {
+  .navContainer {
+    padding: 10px 16px;
+  }
+
+  .brandWordmark {
+    font-size: 1.1rem;
+  }
+
+  .brandSubTag {
+    font-size: 0.54rem;
+    letter-spacing: 0.12em;
+  }
+}
+

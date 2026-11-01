@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 import ContactSection from "@/components/ContactSection";
 import SocialIcon from "@/components/SocialIcon";
-import ThemeToggle from "@/components/ThemeToggle";
 import { BRAND_CONFIG, PORTFOLIO_ITEMS } from "@/lib/catalog";
 import styles from "./page.module.css";
 
@@ -39,58 +39,8 @@ const FEATURED_WORKS = PORTFOLIO_ITEMS.slice(0, 3);
 export default function Home() {
   return (
     <div className={styles.page}>
-      {/* Sticky Top Navbar */}
-      <header className={styles.navbar}>
-        <div className={styles.navContainer}>
-          <Link href="/" className={styles.brandLink}>
-            <div className={styles.logoMarkWrap}>
-              <Image
-                src="/images/logo2.png"
-                alt="made_men monogram logo"
-                width={38}
-                height={44}
-                className={styles.navLogoImage}
-                priority
-              />
-            </div>
-            <div className={styles.brandTextWrap}>
-              <span className={styles.brandWordmark}>
-                made<span className={styles.goldUnderscore}>_</span>men
-              </span>
-              <span className={styles.brandSubTag}>
-                {BRAND_CONFIG.tagline} • ENUGU
-              </span>
-            </div>
-          </Link>
-
-          {/* Desktop Nav Links */}
-          <nav className={styles.navLinks} aria-label="Primary Navigation">
-            <Link href="/" className={`${styles.navItem} ${styles.navItemActive}`}>
-              Home
-            </Link>
-            <Link href="/browse" className={styles.navItem}>
-              Browse Collection
-            </Link>
-            <Link href="#hand-behind-brand" className={styles.navItem}>
-              The Tailor
-            </Link>
-            <Link href="#craft" className={styles.navItem}>
-              Craftsmanship
-            </Link>
-            <Link href="#contact" className={styles.navItem}>
-              Contact Me
-            </Link>
-          </nav>
-
-          {/* Nav Right Controls: Theme Toggle & Fitting CTA */}
-          <div className={styles.navActions}>
-            <ThemeToggle />
-            <Link href="#contact" className={styles.navCtaBtn}>
-              Book Fitting
-            </Link>
-          </div>
-        </div>
-      </header>
+      {/* Shared Responsive Navbar with Mobile Drawer */}
+      <Navbar currentPath="/" />
 
       <main id="top" className={styles.main}>
         {/* Home Page Hero Banner */}

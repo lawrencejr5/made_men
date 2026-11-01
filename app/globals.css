@@ -23,7 +23,7 @@
   --text-subtle: #827b6f;
 
   /* Navbar background */
-  --nav-bg: rgba(251, 249, 245, 0.92);
+  --nav-bg: rgba(251, 249, 245, 0.94);
 
   /* High Contrast Solid Buttons */
   --btn-primary-bg: #0f131d;
@@ -66,7 +66,7 @@
   --text-subtle: #8a8276;
 
   /* Navbar background */
-  --nav-bg: rgba(8, 10, 15, 0.92);
+  --nav-bg: rgba(8, 10, 15, 0.94);
 
   /* High Contrast Solid Buttons */
   --btn-primary-bg: #ffffff;
@@ -129,29 +129,23 @@ button {
   color: #ffffff;
 }
 
-/* Global Theme Toggle Button Style */
+/* Global Theme Toggle Button Style: Clean icon-only button */
 .themeToggleBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  border-radius: 999px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   background: var(--bg-soft);
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
-  font-size: 0.78rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
 }
 
 .themeToggleBtn:hover {
   border-color: var(--gold-primary);
   color: var(--gold-primary);
-}
-
-.themeToggleText {
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 0.7rem;
 }

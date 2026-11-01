@@ -63,8 +63,8 @@ export default function ThemeToggle() {
       {isLight ? (
         // Moon Icon (to switch to dark)
         <svg
-          width="16"
-          height="16"
+          width="17"
+          height="17"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -78,8 +78,8 @@ export default function ThemeToggle() {
       ) : (
         // Sun Icon (to switch to light)
         <svg
-          width="16"
-          height="16"
+          width="17"
+          height="17"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -99,7 +99,6 @@ export default function ThemeToggle() {
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
         </svg>
       )}
-      <span className="themeToggleText">{isLight ? "Dark" : "Light"}</span>
     </button>
   );
 }

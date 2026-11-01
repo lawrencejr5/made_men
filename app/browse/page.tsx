@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import BrowseClient from "./BrowseClient";
-import ThemeToggle from "@/components/ThemeToggle";
+import Navbar from "@/components/Navbar";
 import { BRAND_CONFIG } from "@/lib/catalog";
 import styles from "./browse.module.css";
 import homeStyles from "@/app/page.module.css";
@@ -16,56 +15,8 @@ export const metadata: Metadata = {
 export default function BrowsePage() {
   return (
     <div className={styles.browsePage}>
-      {/* Navigation Header */}
-      <header className={homeStyles.navbar}>
-        <div className={homeStyles.navContainer}>
-          <Link href="/" className={homeStyles.brandLink}>
-            <div className={homeStyles.logoMarkWrap}>
-              <Image
-                src="/images/logo2.png"
-                alt="made_men monogram logo"
-                width={38}
-                height={44}
-                className={homeStyles.navLogoImage}
-                priority
-              />
-            </div>
-            <div className={homeStyles.brandTextWrap}>
-              <span className={homeStyles.brandWordmark}>
-                made<span className={homeStyles.goldUnderscore}>_</span>men
-              </span>
-              <span className={homeStyles.brandSubTag}>
-                {BRAND_CONFIG.tagline} • ENUGU
-              </span>
-            </div>
-          </Link>
-
-          <nav className={homeStyles.navLinks} aria-label="Navigation">
-            <Link href="/" className={homeStyles.navItem}>
-              Home
-            </Link>
-            <Link href="/browse" className={`${homeStyles.navItem} ${homeStyles.navItemActive}`}>
-              Browse Collection
-            </Link>
-            <Link href="/#hand-behind-brand" className={homeStyles.navItem}>
-              The Tailor
-            </Link>
-            <Link href="/#craft" className={homeStyles.navItem}>
-              Craftsmanship
-            </Link>
-            <Link href="/#contact" className={homeStyles.navItem}>
-              Contact Me
-            </Link>
-          </nav>
-
-          <div className={homeStyles.navActions}>
-            <ThemeToggle />
-            <Link href="/#contact" className={homeStyles.navCtaBtn}>
-              Book Fitting
-            </Link>
-          </div>
-        </div>
-      </header>
+      {/* Shared Responsive Navbar with Mobile Drawer */}
+      <Navbar currentPath="/browse" />
 
       {/* Main Browse Content Area */}
       <main className={styles.mainContent}>
